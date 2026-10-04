@@ -348,12 +348,56 @@ check("35. Работа с другим набором, без зависимо�
 });
 
 // Три собственных проверки можно добавить здесь, до итогового вывода,
-// либо выполнить отдельно и описать в отчёте. Общие проверки удалять не нужно.
-// Пример формы записи (не готовая проверка задания):
-// check("Собственный случай: ...", () => {
-//   const result = ...;
-//   assert.deepEqual(result, ...);
-// });
+// 36 — отдельный граничный случай для статистики
+check("36. Собственная: одна выполненная задача даёт 100%", () => {
+  const tasks = [
+    {
+      id: 50,
+      title: "Одна задача",
+      completed: true,
+      priority: "high",
+    },
+  ];
+
+  assert.deepEqual(getTaskStats(tasks), {
+    total: 1,
+    completed: 1,
+    pending: 0,
+    progress: 100,
+  });
+});
+
+// 37 — проверка того, что addTask() добавляет новую задачу в конец, не переставляя существующие.
+check("37. Собственная: добавление сохраняет порядок существующих задач", () => {
+  const tasks = [
+    { id: 30, title: "Первая", completed: false, priority: "low" },
+    { id: 10, title: "Вторая", completed: true, priority: "high" },
+  ];
+
+  const next = expectTasks(
+    addTask(tasks, 50, "Третья", "medium")
+  );
+
+  assert.deepEqual(next.map((task) => task.id), [30, 10, 50]);
+  assert.equal(next[0], tasks[0]);
+  assert.equal(next[1], tasks[1]);
+});
+
+// 38 — проверяем более конкретно поведение removeTask(): после удаления одной задачи оставшиеся объекты не пересоздаются.
+check("38. Собственная: удаление сохраняет объекты оставшихся задач", () => {
+  const tasks = [
+    { id: 1, title: "Первая", completed: false, priority: "low" },
+    { id: 2, title: "Вторая", completed: true, priority: "medium" },
+    { id: 3, title: "Третья", completed: false, priority: "high" },
+  ];
+
+  const next = expectTasks(removeTask(tasks, 2));
+
+  assert.deepEqual(next.map((task) => task.id), [1, 3]);
+  assert.equal(next[0], tasks[0]);
+  assert.equal(next[1], tasks[2]);
+  assert.equal(tasks.length, 3);
+});
 
 console.log(`\nПроверок пройдено: ${passed}; не пройдено: ${failed}.`);
 if (failed > 0) {
