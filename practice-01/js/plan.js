@@ -1,8 +1,8 @@
 "use strict";
 
-const totalTasks = 20;
-const completedTasks = 11;
-const dailyLimit = 6;
+const totalTasks = 12;
+const completedTasks = 5;
+const dailyLimit = 3;
 
 if (
   !Number.isFinite(totalTasks) ||

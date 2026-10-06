@@ -126,7 +126,7 @@ console.log("Сводка:", getTaskStats(variantCurrentTasks));
 result = addTask(
   variantCurrentTasks,
   80,
-  "Подготовить материалы для семинара",
+  "Подготовить материалы для учебного проекта",
   "high"
 );
 
@@ -153,7 +153,7 @@ console.log("Сводка:", getTaskStats(variantCurrentTasks));
 result = renameTask(
   variantCurrentTasks,
   23,
-  "Уточнить план семинара"
+  "Уточнить план учебного проекта"
 );
 
 if (result.ok) {

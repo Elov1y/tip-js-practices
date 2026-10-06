@@ -142,7 +142,7 @@ export function renameTask(tasks, id, title) {
   if (trimmedTitle.length < 1 || trimmedTitle.length > 100){
     return{
       ok: false,
-      error: "tittle должен содержать от 1 до 100 символов",
+      error: "title должен содержать от 1 до 100 символов",
     };
   }
 
@@ -170,7 +170,7 @@ export function removeTask(tasks, id) {
   if (!Number.isSafeInteger(id) || id <= 0) {
     return {
       ok: false,
-      error: "id должен быть положительным целым числом",
+      error: "id должен быть положительным безопасным целым числом",
     };
   }
 

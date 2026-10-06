@@ -7,44 +7,44 @@ export const demoTasks = [
   { id: 10, title: "Оформить README", completed: true, priority: "medium" },
 ];
 
-// Индивидуальный вариант 4.
-// Тема: подготовка семинара.
-export const variantNumber = 4;
+// Индивидуальный вариант 1.
+// Тема: подготовка учебного проекта.
+export const variantNumber = 1;
 
 export const variantTasks = [
   {
     id: 11,
-    title: "Выбрать тему семинара",
-    completed: true,
+    title: "Определить тему учебного проекта",
+    completed: false,
     priority: "high",
   },
   {
     id: 23,
-    title: "Подготовить план семинара",
-    completed: true,
+    title: "Составить план проекта",
+    completed: false,
     priority: "medium",
   },
   {
     id: 37,
-    title: "Собрать материалы",
-    completed: true,
+    title: "Собрать материалы для проекта",
+    completed: false,
     priority: "low",
   },
   {
     id: 41,
-    title: "Подготовить презентацию",
+    title: "Подготовить структуру проекта",
     completed: false,
     priority: "high",
   },
   {
     id: 58,
-    title: "Составить вопросы для обсуждения",
+    title: "Реализовать основные функции",
     completed: false,
     priority: "medium",
   },
   {
     id: 64,
-    title: "Проверить материалы семинара",
+    title: "Проверить результат проекта",
     completed: false,
     priority: "low",
   },
